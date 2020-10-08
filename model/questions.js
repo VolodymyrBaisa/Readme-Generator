@@ -10,8 +10,8 @@ module.exports = class Questions {
                 message: "What is your GitHub username? (No @ needed)",
                 name: "username",
                 default: "anonymous-dev",
-                validate: () => {
-                    if (answers.length < 1)
+                validate: (answer) => {
+                    if (answer.length < 1)
                         return print.err(
                             "A valid GitHub username is required."
                         );
@@ -22,7 +22,7 @@ module.exports = class Questions {
                 type: "input",
                 message: "What is the name of your GitHub repo?",
                 name: "repo",
-                default: "readme-generator",
+                default: "repo-undefined",
                 validate: (answer) => {
                     if (answer.length < 1)
                         return print.err(

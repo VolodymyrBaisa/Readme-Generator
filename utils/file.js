@@ -1,11 +1,11 @@
-const fs = require("fs");
+const fs = require("fs").promises;
 const Print = require("../view/print");
 
 const print = new Print();
 
 module.exports = class File {
-    writeToFile(fileName, data) {
-        fs.writeFile(fileName, data, (err) => {
+    async writeToFileAsync(fileName, data) {
+        return await fs.writeFile(fileName, data, (err) => {
             if (err) {
                 print.err(err);
             }
