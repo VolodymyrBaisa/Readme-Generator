@@ -1,5 +1,6 @@
 const fs = require("fs");
 const Print = require("../view/print");
+
 const print = new Print();
 
 module.exports = class File {
