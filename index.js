@@ -15,20 +15,21 @@ const file = new File();
         const userResponses = await print.questions(
             questions.getUserQuestions()
         );
-        print.info("Your responses: ", userResponses);
+        print.info(`Your responses: ${JSON.stringify(userResponses)}`);
         print.info(
             "Thank you for your responses! Fetching your GitHub data next..."
         );
 
         const userInfo = await api.getUser(userResponses);
-        print.info("Your GitHub user info: ", userInfo);
+        print.info(`Your GitHub user info: ${JSON.stringify(userInfo.data)}`);
 
         print.info("Generating your README next...");
 
         const markdown = template.generateMarkdown(userResponses, userInfo);
         print.info(markdown);
 
-        await file.writeToFileAsync("README.md", markdown);
+        const fileName = "README.md";
+        await file.writeToFileAsync(fileName, markdown);
     } catch (err) {
         print.err(err);
     }

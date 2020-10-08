@@ -104,15 +104,15 @@ ${userResponses.license}
 
 ## Questions?
 
-![Developer Profile Picture](${userInfo.avatar_url}) 
+![Developer Profile Picture](${userInfo.data.avatar_url}) 
 
 For any questions, please contact me with the information below:
 
-GitHub: [@${userInfo.login}](${userInfo.url})
+GitHub: [@${userInfo.data.login}](${userInfo.data.url})
 `;
 
         // If GitHub email is not null, add to Developer section
-        if (userInfo.email !== null) {
+        if (userInfo.data.email !== null) {
             draftDev += `
 
 Email: ${userInfo.email}

@@ -7,7 +7,6 @@ const infoStyle = chalk.bold.blue;
 
 module.exports = class Print {
     err(msg) {
-        console.log(errorStyle(msg));
         console.log(errorStyle(msg.stack));
     }
 
